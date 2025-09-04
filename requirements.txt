@@ -1,0 +1,3 @@
+generativeai
+pandas
+google-generativeai
