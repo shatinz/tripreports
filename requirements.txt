@@ -1,3 +1,10 @@
 generativeai
-pandas
 google-generativeai
+pandas
+beautifulsoup4
+requests
+matplotlib
+sentence-transformers
+transformers
+accelerate
+seaborn
