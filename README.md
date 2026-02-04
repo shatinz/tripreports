@@ -43,6 +43,16 @@ Using the `schemasearchforembedding.ipynb` notebook, we performed a deep-dive an
 
 ![Correlation Heatmap](images/correlation_heatmap.png)
 
+### 6. Evaluation & Clustering Analysis
+We explored unsupervised clustering techniques (K-Means, Agglomerative, HDBSCAN) on both the original and Gemma-generated embeddings to identify distinct thematic groups within the reports.
+
+To evaluate the quality of these clusters, we utilized the **Silhouette Score**, a metric used to calculate the goodness of a clustering technique.
+- **K-Means on Original Embeddings**: 0.0276
+- **Agglomerative on Original Embeddings**: 0.0332
+- **K-Means on Gemma Embeddings**: 0.0181
+
+**Interpretation**: The relatively low Silhouette Scores suggest that DMT trip reports do not naturally form distinct, separated clusters. Instead, the experiences appear to be highly subjective and exist on a **continuous spectrum**, making rigid categorization challenging. This aligns with the complex and ineffable nature of psychedelic experiences.
+
 ---
 
 ## 🛠️ Technical Implementation & Flow
