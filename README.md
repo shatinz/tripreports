@@ -43,6 +43,9 @@ Using the `schemasearchforembedding.ipynb` notebook, we performed a deep-dive an
 
 ![Correlation Heatmap](images/correlation_heatmap.png)
 
+> [!WARNING]
+> **Evaluation Note:** The current correlation analysis is **exploratory**. P-values and statistical significance tests have **not** yet been calculated. Therefore, these correlations should be interpreted as potential signals rather than confirmed causal relationships. Additionally, the accuracy of the Gemini LLM's data extraction has not been benchmarked against a human-labeled ground truth dataset.
+
 ### 6. Evaluation & Clustering Analysis
 We explored unsupervised clustering techniques (K-Means, Agglomerative, HDBSCAN) on both the original and Gemma-generated embeddings to identify distinct thematic groups within the reports.
 
