@@ -44,9 +44,33 @@ Using the `schemasearchforembedding.ipynb` notebook, we performed a deep-dive an
 ![Correlation Heatmap](images/correlation_heatmap.png)
 
 > [!WARNING]
-> **Evaluation Note:** The current correlation analysis is **exploratory**. P-values and statistical significance tests have **not** yet been calculated. Therefore, these correlations should be interpreted as potential signals rather than confirmed causal relationships. Additionally, the accuracy of the Gemini LLM's data extraction has not been benchmarked against a human-labeled ground truth dataset.
+> **Evaluation Note:** The current correlation analysis is **exploratory**. While we have added statistical checks (see below), causal relationships should not be inferred.
 
-### 6. Evaluation & Clustering Analysis
+### 6. Statistical Validation
+To ensure the robustness of the observed correlations, we performed a rigorous statistical analysis:
+
+1.  **Significance Testing**: Calculated **p-values** for all Spearman correlations.
+    -   `*` p < 0.05
+    -   `**` p < 0.01
+    -   `***` p < 0.001
+2.  **Bootstrap Confidence Intervals**: Performed **1000 bootstrap iterations** to estimate the 95% confidence intervals for the correlation coefficients.
+3.  **Stability Analysis**: Tested the stability of correlations by subsampling the data from 50% to 100% size.
+
+**Results:**
+
+#### Correlation Heatmap with Significance
+The heatmap below shows the correlation matrix with significance levels marked.
+![Correlation Heatmap with Significance](images/correlation_heatmap_significance.png)
+
+#### Top Correlations with Confidence Intervals
+We analyzed the top 15 strongest correlations and plotted them with their 95% confidence intervals. The tight error bars indicate that these correlations are statistically reliable.
+![Top Correlations with CI](images/top_correlations_ci.png)
+
+#### Correlation Stability
+The stability plot shows how the standard deviation of the correlation coefficients changes as we increase the sample size. The curve flattens out, suggesting that our sample size is sufficient for stable estimates.
+![Correlation Stability](images/correlation_stability.png)
+
+### 7. Evaluation & Clustering Analysis
 We explored unsupervised clustering techniques (K-Means, Agglomerative, HDBSCAN) on both the original and Gemma-generated embeddings to identify distinct thematic groups within the reports.
 
 To evaluate the quality of these clusters, we utilized the **Silhouette Score**, a metric used to calculate the goodness of a clustering technique.
